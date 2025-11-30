@@ -1,0 +1,39 @@
+.venv
+__pycache__/
+*.pyc
+.env
+data/
+.vscode/
+.ipynb_checkpoints/
+secrets*.json
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data folders (if you don't want to track raw data)
+# Uncomment if you want to keep raw CSVs out of Git
+# data/raw/
+# data/processed/
+
+# Logs
+*.log
+
+# dotenv environment variables
+.env
