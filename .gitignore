@@ -37,3 +37,6 @@ Thumbs.db
 
 # dotenv environment variables
 .env
+data/raw/
+!data/processed/reviews_processed.csv
+
