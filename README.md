@@ -1,22 +1,18 @@
-📌 Mobile Banking Review Analysis – Week 2 Challenge
+# 📌 Mobile Banking Review Analysis – Week 2 Challenge
 
-This repository contains all work completed for 10 Academy – AI Mastery Program, Week 2 Challenge, focusing on mobile banking reviews, including data scraping, cleaning, sentiment analysis, thematic extraction, and reporting.
+This repository contains all work completed for **10 Academy – AI Mastery Program, Week 2 Challenge**, focusing on **mobile banking reviews**. The project covers data scraping, cleaning, sentiment analysis, thematic extraction, and reporting.
 
-The project is structured into two major tasks:
+---
 
-Task-1: Data Collection — Web Scraping & Cleaning
+## 📁 Project Structure
 
-Task-2: Sentiment & Theme Analysis — VADER-based sentiment + Keyword thematic modeling
-
-A detailed Interim Report (4 pages) is also included, summarizing the scraping pipeline and early insights from the data.
-
-📁 Folder Structure
+```
 mobile-banking-reviews-Challenge-week2/
 │
-├── Scripts/                         # All Python scripts for Task-1 & Task-2
+├── Scripts/                         # Python scripts for Task-1 & Task-2
 │   ├── task1_scraper.py             # Web scraping logic
 │   ├── task1_cleaner.py             # Cleaning & preprocessing
-│   ├── Sentiment_demo.py  # VADER sentiment + thematic modeling
+│   └── Sentiment_demo.py            # VADER sentiment + thematic extraction
 │
 ├── notebooks/
 │   ├── task1_scraping_cleaning.ipynb   # Task-1 exploratory notebook
@@ -32,175 +28,143 @@ mobile-banking-reviews-Challenge-week2/
 │   └── Interim_Report.pdf              # 4-page early analysis report
 │
 ├── README.md                           # Project documentation
-└── requirements.txt                    # All dependencies
+└── requirements.txt                    # Python dependencies
+```
 
-🚀 Task 1 — Data Scraping & Early Cleaning
-Objective
+---
 
-Collect mobile banking reviews from the provided Google Play Store URLs.
+## 🚀 Task 1 — Data Scraping & Cleaning
 
-Key Steps
+**Objective:** Collect mobile banking reviews from Google Play Store and preprocess them for analysis.
 
-Automated scraping using BeautifulSoup / Play Store API wrapper
+**Key Steps:**
 
-Extracted:
+* Automated scraping using **BeautifulSoup** / Play Store API wrapper
+* Extracted:
 
-Reviewer name
+  * Reviewer name
+  * Rating
+  * Review text
+  * Review date
+* Cleaned text by removing:
 
-Rating
+  * Emojis
+  * HTML artifacts
+  * URLs
+  * Stopwords
+  * Extra whitespace
 
-Review text
+**Outputs:**
 
-Date
+* `notebooks/data/raw/reviews_raw.csv` – Raw scraped reviews
+* `notebooks/data/processed/reviews_clean.csv` – Cleaned dataset
 
-Cleaned text by removing:
+**Deliverables:**
 
-Emojis
+✔ `task1_scraper.py`
+✔ `task1_cleaner.py`
+✔ `task1_scraping_cleaning.ipynb`
 
-HTML artifacts
+---
 
-URLs
+## 🔍 Task 2 — Sentiment & Thematic Analysis
 
-Stopwords
+**Sentiment Analysis:**
 
-Normalized whitespaces
+* Implemented using **VADER Sentiment Analyzer**
+* Output columns:
 
-Stored outputs in:
+  * `sentiment_score` → compound sentiment score
+  * `sentiment_label` → positive / neutral / negative
 
-notebooks/data/raw/reviews_raw.csv
-notebooks/data/processed/reviews_clean.csv
+**Thematic Extraction:**
 
-Deliverables
+* Due to installation issues with **gensim** and **spaCy**, themes were extracted via:
 
-✔ task1_scraper.py
-✔ task1_cleaner.py
-✔ task1_scraping_cleaning.ipynb
+  * Keyword frequency analysis
+  * Regex-based noun extraction (no spaCy dependency)
+* Manual clustering of themes into:
 
-🔍 Task 2 — Sentiment + Thematic Analysis
-Sentiment Analysis
+  * Customer Support
+  * Usability & UI
+  * Bugs / Technical issues
+  * Performance
+  * Security & Trust
 
-Because NLTK and spaCy had installation issues, I implemented a stable, modern approach using:
+**Deliverables:**
 
-VADER Sentiment Analyzer (works perfectly on short review text)
+✔ `task2_sentiment_thematic.py`
+✔ `task2_analysis.ipynb`
 
-Output columns:
+---
 
-sentiment_compound
+## 🌱 Branches
 
-sentiment_label → positive / neutral / negative
+| Branch | Purpose                                          |
+| ------ | ------------------------------------------------ |
+| main   | Production-ready code, final results, reports    |
+| task-1 | Scraping + cleaning scripts & notebook           |
+| task-2 | Sentiment + thematic analysis scripts & notebook |
+| task-3 | PostgreSQL database insertion scripts/notebooks  |
+| task-4 | Insights, visualizations, and recommendations    |
 
-Thematic Extraction
+All development happened in **task-specific branches**, then merged into `main` after completion.
 
-Due to gensim failing to install, themes were extracted using:
+---
 
-Keyword frequency analysis
+## 📄 Interim Report (4 Pages)
 
-Simple noun extraction (regex-based, no spaCy dependency)
+The report summarizes:
 
-Manual clustering of themes into:
+1. **Task Overview:** Purpose, data sources, requirements
+2. **Scraping Strategy:** Tools used, pagination handling, data schema
+3. **Data Cleaning Pipeline:** Duplicate removal, tokenization, normalization
+4. **Early Insights:** Rating distribution, sentiment distribution, keyword frequency
+5. **Challenges & Solutions:** Play Store DOM issues, NLTK/gensim/spaCy installation issues
+6. **Repository Structure:** Folder and file organization
 
-Customer Support
+---
 
-Usability & UI
+## 🛠 How to Run the Project
 
-Bugs / Technical issues
+1️⃣ **Create virtual environment**
 
-Performance
-
-Security & Trust
-
-Deliverables
-
-✔ task2_sentiment_thematic.py
-✔ task2_analysis.ipynb
-
-🌱 Current Branches in the Repository
-Branch	Purpose
-main	Production-ready code, final results, reports
-task-1	Contains scraping + cleaning scripts & notebook
-task-2	Sentiment + thematic analysis scripts & notebook
-
-All development happened in the task-specific branches, then merged into main after completion.
-
-📄 Interim Report (4 Pages)
-
-The Interim Report summarizes:
-
-1. Task Overview
-
-Purpose of the challenge
-
-Data sources
-
-Requirements
-
-2. Scraping Strategy
-
-Tools used: BeautifulSoup / Requests
-
-How pagination or dynamic loading was handled
-
-Data schema collected
-
-Error handling & retry logic
-
-3. Data Cleaning Pipeline
-
-Duplicate removal
-
-Tokenization
-
-Lowercasing
-
-Stopword filtering
-
-Text normalization
-
-4. Early Insights
-
-Distribution of ratings
-
-Early sentiment distribution
-
-Initial keyword frequency
-
-Example positive & negative reviews
-
-5. Challenges & Mitigations
-
-Play Store DOM issues
-
-NLTK installation failures
-
-Gensim / spaCy incompatibility with Python 3.14
-
-Solutions used (VADER, regex noun extraction)
-
-6. Structure of the Repository
-
-Explaining the folder structure listed above.
-
-🛠 How to Run the Project
-1️⃣ Create environment
+```bash
 python -m venv .venv
-source .venv/bin/activate      # Mac/Linux
-.\.venv\Scripts\activate       # Windows
+# Activate
+# Mac/Linux
+source .venv/bin/activate
+# Windows
+.\.venv\Scripts\activate
+```
 
-2️⃣ Install dependencies
+2️⃣ **Install dependencies**
+
+```bash
 pip install -r requirements.txt
+```
 
-3️⃣ Run Task-1 scripts
+3️⃣ **Run Task-1 scripts**
+
+```bash
 python Scripts/task1_scraper.py
 python Scripts/task1_cleaner.py
+```
 
-4️⃣ Run Task-2 analysis
+4️⃣ **Run Task-2 analysis**
+
+```bash
 python Scripts/task2_sentiment_thematic.py
+```
 
+Or use the Jupyter Notebooks in `/notebooks`.
 
-Or use the Jupyter Notebooks inside /notebooks.
+---
 
-🙌 Author
+## 🙌 Author
 
-Kalkidan Asdesach
-10 Academy – Cohort 8
-AI Mastery Program | Week 2 Challenge
+**Kalkidan Asdesach**
+10 Academy – AI Mastery Program
+
+---
+
