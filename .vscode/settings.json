@@ -1,5 +1,19 @@
 {
     "python.analysis.extraPaths": [
         "./Scripts"
+    ],
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "PG Local",
+            "database": "bank_reviews",
+            "username": "postgres",
+            "password": "kalkidan111",
+            "connectionTimeout": 30
+        }
     ]
 }
